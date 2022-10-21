@@ -118,7 +118,7 @@ public class SlotView : MonoBehaviour
                 itemCountDict[loadingSprites[i].name] = 1;
             }
 
-            if (itemCountDict[loadingSprites[i].name] == 2)
+            if (itemCountDict[loadingSprites[i].name] == 3)
             {
                 isCanMerge = true;
             }
@@ -139,7 +139,7 @@ public class SlotView : MonoBehaviour
         foreach (var item in itemCountDict)
         {
             Debug.Log("item.Key:"+ item.Key+ ",item.Value:"+ item.Value);
-            if (item.Value == 2)
+            if (item.Value == 3)
             {
                 isPlayStarVFX = true;
                 if (!isPlayMergeAudioSource)

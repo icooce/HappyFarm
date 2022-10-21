@@ -35,7 +35,8 @@ public class LayerManager : MonoBehaviour
             int idx = Random.Range(0, sprites.Length);
             idxs[i] = idx;
             idxs[i+1] = idx;
-            i += 1;
+            idxs[i+2] = idx;
+            i += 2;
         }
 
         int[] newIdxs = Shuffle(idxs);
