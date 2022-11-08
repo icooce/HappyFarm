@@ -25,6 +25,11 @@ public class SlotView : MonoBehaviour
     [SerializeField] public bool isPlayStarVFX;
     [SerializeField] public string isMergeSpriteName;
 
+    [Space]
+    [Header("StartVFX Config")]
+    [SerializeField] Transform starVFXs;
+    [SerializeField] GameObject starVFXPrefab;
+
     List<Sprite> tmpSprites = new List<Sprite>();
 
     [Space]
@@ -187,7 +192,11 @@ public class SlotView : MonoBehaviour
                 if (name.Equals(loadingSprites[i].name))
                 {
                     transform.GetChild(i).GetChild(0).GetComponent<Image>().color = new Color(1.0f,1.0f,1.0f, 0f);
-                    transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                    //transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                    GameObject newStarVFX = Instantiate(starVFXPrefab);
+                    newStarVFX.transform.SetParent(starVFXs);
+                    newStarVFX.transform.localPosition = new Vector3(-3.9f + i * 1.0f, 0f, 0f);
+                    Destroy(newStarVFX, 2.0f);
 
                     if (GameManager.Instance.isCompletedGuideLevel)
                     {
